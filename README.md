@@ -35,3 +35,57 @@ In an era where rapid, data-driven decisions separate leaders from followers, fi
    - **Variance %:** DIVIDE([Actual] – [Budget], [Budget], 0).
    - **% of Budget:** DIVIDE([Actual], [Budget], 0).
    - **Dynamic Slicers:** Parameters for Year, Month, and Project ID drive all visuals via SELECTEDVALUE.
+  
+**DASHBOARD FEATURES**
+
+1. **Interactive KPI Cards**
+
+   - Display Income and Expense actuals, budget, variance, and budget attainment in a glance.
+   - Conditional formatting (green/red) offers immediate visual cues.
+  
+2. **Time-Series Trend Analysis**
+
+   - Clustered column charts compare Actual vs. Budget across historical periods.
+   - Dynamic variance labels (▲/▼) highlight performance swings.
+  
+3. **Project-Level Breakout Tables**
+
+   - Sortable table of projects with key metrics and in-cell bar visuals.
+   - Drill-through capability: click any project to see detailed line-item breakdown.
+  
+4. **Drill-Down & Slicers**
+
+   - Year, Month, and Project slicers filter every visual synchronously.
+   - Drill-down on charts unveils monthly, weekly, or daily views without leaving the page.
+
+Here is a snapshot of the dashboard;
+
+![Actual Vs Budget Dashboard](https://github.com/user-attachments/assets/931aa6fb-54c4-4454-b7f5-d9d191e35986)
+
+**ANALYSIS AND INSIGHTS**
+
+•	**Variance Patterns:** Identify periods where actual income consistently outpaces budget, signaling optimistic forecasts or revenue spikes.
+
+•	**Cost Control:** Track expense overruns in specific months or projects to trigger timely corrective actions.
+
+•	**Project Performance:** Quickly spotlight underperforming projects (negative % of budget) and reallocate resources.
+
+•	**Seasonality & Trends:** Use drill-down to uncover seasonality in income or expense lines, supporting improved forecasting.
+
+**RECOMMENDATIONS**
+
+1.	**Embed in Executive Workflow:** Schedule automatic dashboard refreshes and distribute via Power BI Service to key stakeholders.
+2.	**Set Alerts:** Define data-driven alerts for when variances exceed predefined thresholds, enabling proactive management.
+3.	**Deep-Dive Reports:** Build drill-through pages for detailed GL-code or department-level analysis.
+4.	**Forecast Integration:** Incorporate forward-looking measures (forecast vs. budget vs. actual) to close the planning loop.
+5.	**Training & Adoption:** Conduct workshops to ensure finance and project teams can leverage drill-down and export features effectively.
+
+**CONCLUSION**
+
+This Power BI Actual vs. Budget Executive Summary exemplifies how modern BI solutions can replace static reporting with interactive, self-service analytics. By unifying actuals, budgets, and variances in one dynamic canvas—with intuitive slicers and drill-through pathways—organizations gain a 360° view of financial health. The result is faster insight delivery, stronger governance, and a culture of data-driven decision-making that accelerates growth and operational excellence.
+
+
+
+
+
+
