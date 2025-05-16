@@ -28,3 +28,10 @@ In an era where rapid, data-driven decisions separate leaders from followers, fi
    -  Created a Date dimension table, marked as a date table for time intelligence.
    -  Built relationships between Projects, Actuals, and Budgets tables.
    -  Ensured clean, consistent data by standardizing currency, handling missing values, and validating project IDs.
+
+3. **Measures and Calculations:**
+
+   - **Total Sales Actual / Budget:** SUM of actuals and budget fields.
+   - **Variance %:** DIVIDE([Actual] – [Budget], [Budget], 0).
+   - **% of Budget:** DIVIDE([Actual], [Budget], 0).
+   - **Dynamic Slicers:** Parameters for Year, Month, and Project ID drive all visuals via SELECTEDVALUE.
