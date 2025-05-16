@@ -1,4 +1,4 @@
-# Actual-vs.-Budget-Executive-Summary
+# Actual vs. Budget Executive Summary
 
 **INTRODUCTION**
 
@@ -71,6 +71,8 @@ Here is a snapshot of the dashboard;
 •	**Project Performance:** Quickly spotlight underperforming projects (negative % of budget) and reallocate resources.
 
 •	**Seasonality & Trends:** Use drill-down to uncover seasonality in income or expense lines, supporting improved forecasting.
+
+To explore the interactive Power BI dashboards, [Click Here](https://app.powerbi.com/view?r=eyJrIjoiZjUxYjI1NDktMjA3OS00ZGU2LWEwODctZmY2ZmY4NzRlNmRlIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 
 **RECOMMENDATIONS**
 
