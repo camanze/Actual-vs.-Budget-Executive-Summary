@@ -1,0 +1,36 @@
+Expense Donut Chart = 
+VAR ProgressValue = [% of Expense Budget]* 100 // Current progress (0-100).
+VAR DisplayValue = MIN(ProgressValue, 100) // Ensure that the donut chart does not exceed 100% visually
+VAR Radius = 42 // Radius of the donut chart
+VAR CircumferenceValue = 2 * PI() * Radius // Full circumference of the circle
+VAR ProgressLength = (DisplayValue / 100) * CircumferenceValue // Length of the progress stroke
+VAR CenterX = 60 // X-coordinate of the center
+VAR CenterY = 60 // Y-coordinate of the center
+VAR BackgroundStrokeWidth = 12 // Width of the background ring
+VAR ProgressStrokeWidth = 16 // Width of the progress ring
+
+// --- COLOR DEFINITIONS ---
+VAR RedColor = "#FF0000"     // Red color for overspending (>95%)
+VAR AmberColor = "#FFA500"   // Amber color for exactly 95%
+VAR GreenColor = "#13A806"   // Green color for under 95%
+
+// --- TARGET THRESHOLDS ---
+// Determines the final color based on ProgressValue (Expense % of Budget):
+// - Below 95% = Green
+// - Exactly 95% = Amber
+// - Above 95% = Red
+VAR FinalColor =
+SWITCH(
+    TRUE(),
+    ProgressValue < 95, GreenColor,       // Target: <95% = Green (on target)
+    ProgressValue = 95, AmberColor,       // Target: 95% = Amber (watch closely)
+    ProgressValue > 95, RedColor,         // Target: >95% = Red (overspent)
+    GreenColor                            // Default to Green if no conditions match
+)
+
+
+
+RETURN
+"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' width='260' height='260'>
+
+<style> @keyframes progress-fill { 0% { stroke-dashoffset: " & CircumferenceValue & "; stroke: " & RedColor & "; } 50% { stroke-dashoffset: " & (CircumferenceValue - (CircumferenceValue * 0.5)) & "; stroke: " & AmberColor & "; } 80% { stroke-dashoffset: " & (CircumferenceValue - (CircumferenceValue * 0.8)) & "; stroke: " & AmberColor & "; } 100% { stroke-dashoffset: " & (CircumferenceValue - ProgressLength) & "; stroke: " & FinalColor & "; } // Final color depends on ProgressValue } .progress-ring { animation: progress-fill 2s ease-out forwards; } </style> <circle cx='" & CenterX & "' cy='" & CenterY & "' r='" & Radius & "' fill='none' stroke='#E0E0E0' stroke-width='" & BackgroundStrokeWidth & "' /> <circle class='progress-ring' cx='" & CenterX & "' cy='" & CenterY & "' r='" & Radius & "' fill='none' stroke='" & FinalColor & "' stroke-width='" & ProgressStrokeWidth & "' stroke-dasharray='" & CircumferenceValue & "' stroke-dashoffset='" & (CircumferenceValue - ProgressLength) & "' /> <text x='50%' y='55%' text-anchor='middle' alignment-baseline='middle' font-size='18' font-family='Arial' fill='#444'>" & FORMAT(ProgressValue, "0.00") & "%</text> </svg>"

@@ -1,0 +1,27 @@
+Income Bar Chart = 
+VAR ProgressValue = [% of Income Budget]  * 100
+VAR BarHeight = 20
+VAR BarY = 20
+
+// --- COLOR DEFINITIONS ---
+VAR RedColor = "#FF0000"
+VAR AmberColor = "#FFA500"
+VAR GreenColor = "#13A806"
+
+VAR FinalColor =
+   SWITCH(
+    TRUE(),
+    ProgressValue < 95, RedColor,       // Target: <95% = Red (underperforming)
+    ProgressValue = 95, AmberColor,     // Target: 95% = Amber (monitor closely)
+    ProgressValue > 95, GreenColor,     // Target: >95% = Green (on or above target)
+    GreenColor                          // Default to Green if no conditions match
+)
+VAR ProgressPercent = DIVIDE(ProgressValue, 100, 0)
+
+RETURN
+"data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none' width='100%' height='50'>
+    <rect x='0' y='" & BarY & "' width='100' height='" & BarHeight & "' fill='#E0E0E0' rx='5' ry='5'/>
+    <rect x='0' y='" & BarY & "' width='" & (ProgressPercent * 100) & "' height='" & BarHeight & "' fill='" & FinalColor & "' rx='5' ry='5'/>
+    
+</svg>"
